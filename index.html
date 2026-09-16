@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>S.H.L | خدمات حرفه‌ای</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Tahoma,Arial,sans-serif}
+
+body{
+background:#07111f;
+color:#fff;
+min-height:100vh;
+overflow-x:hidden
+}
+
+button,input,textarea,select{font-family:inherit}
+
+#loginPage{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+position:relative;
+overflow:hidden;
+background:
+radial-gradient(circle at 15% 20%,#164c70 0,transparent 30%),
+radial-gradient(circle at 85% 80%,#48206c 0,transparent 30%),
+#07111f
+}
+
+.orb{
+position:absolute;
+border-radius:50%;
+filter:blur(4px);
+opacity:.3;
+animation:float 6s ease-in-out infinite
+}
+
+.orb1{
+width:250px;height:250px;
+background:#00d9ff;
+top:-100px;right:-70px
+}
+
+.orb2{
+width:210px;height:210px;
+background:#8e44ad;
+bottom:-90px;left:-60px;
+animation-delay:2s
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(25px)}
+}
+
+.login-box{
+width:100%;
+max-width:420px;
+padding:40px 30px;
+text-align:center;
+border-radius:28px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.14);
+backdrop-filter:blur(20px);
+box-shadow:0 25px 70px rgba(0,0,0,.45);
+position:relative;
+z-index:2
+}
+
+.logo{
+width:110px;
+height:110px;
+margin:0 auto 22px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:30px;
+background:linear-gradient(135deg,#00d9ff,#6c5ce7);
+box-shadow:0 0 40px rgba(0,217,255,.3);
+font-size:27px;
+font-weight:bold;
+letter-spacing:5px;
+transform:rotate(-4deg)
+}
+
+.logo span{transform:rotate(4deg)}
+
+.login-box h1{
+font-size:28px;
+margin-bottom:10px
+}
+
+.login-box>p{
+color:#aebdce;
+line-height:1.9;
+margin-bottom:28px
+}
+
+.input{
+width:100%;
+padding:16px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,.12);
+outline:none;
+background:rgba(255,255,255,.08);
+color:#fff;
+text-align:center;
+font-size:16px;
+margin-bottom:14px
+}
+
+.input::placeholder{color:#aab8c8}
+
+.btn{
+width:100%;
+padding:16px;
+border:0;
+border-radius:14px;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+color:#fff;
+background:linear-gradient(135deg,#00b8db,#6c5ce7);
+transition:.3s
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(0,217,255,.25)
+}
+
+.error{
+display:none;
+margin-top:15px;
+color:#ff7f8f
+}
+
+/* APP */
+
+#app{display:none;min-height:100vh}
+
+header{
+position:sticky;
+top:0;
+z-index:20;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:14px 6%;
+background:rgba(7,17,31,.88);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(255,255,255,.08)
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+font-size:21px;
+font-weight:bold
+}
+
+.brand-logo{
+width:48px;
+height:48px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:14px;
+background:linear-gradient(135deg,#00d9ff,#6c5ce7);
+font-size:13px;
+font-weight:bold;
+letter-spacing:2px
+}
+
+.logout{
+border:1px solid rgba(255,255,255,.12);
+background:rgba(255,255,255,.06);
+color:#fff;
+padding:10px 17px;
+border-radius:12px;
+cursor:pointer
+}
+
+.hero{
+padding:75px 20px 50px;
+text-align:center
+}
+
+.hero h2{
+font-size:clamp(32px,7vw,60px);
+line-height:1.4;
+margin-bottom:15px
+}
+
+.gradient{
+background:linear-gradient(90deg,#00d9ff,#a77cff);
+-webkit-background-clip:text;
+color:transparent
+}
+
+.hero p{
+max-width:680px;
+margin:auto;
+color:#a9b8c8;
+line-height:2;
+font-size:16px
+}
+
+.section{
+max-width:1150px;
+margin:auto;
+padding:20px 20px 70px
+}
+
+.section-title{
+text-align:center;
+margin-bottom:35px
+}
+
+.section-title h3{
+font-size:30px;
+margin-bottom:10px
+}
+
+.section-title p{color:#899aae}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+gap:20px
+}
+
+.service{
+position:relative;
+overflow:hidden;
+padding:28px 22px;
+border-radius:23px;
+cursor:pointer;
+background:linear-gradient(
+145deg,
+rgba(255,255,255,.10),
+rgba(255,255,255,.035)
+);
+border:1px solid rgba(255,255,255,.10);
+transition:.35s
+}
+
+.service:hover{
+transform:translateY(-8px);
+border-color:rgba(0,217,255,.55);
+box-shadow:0 15px 35px rgba(0,0,0,.25)
+}
+
+.icon{
+font-size:45px;
+margin-bottom:17px
+}
+
+.service h4{
+font-size:19px;
+margin-bottom:10px
+}
+
+.service p{
+color:#91a1b4;
+font-size:14px;
+line-height:1.8
+}
+
+/* FORM */
+
+#requestSection{
+display:none;
+max-width:800px;
+margin:0 auto 70px;
+padding:0 20px
+}
+
+.form-box{
+padding:30px;
+border-radius:25px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.1)
+}
+
+.selected{text-align:center;margin-bottom:25px}
+
+.selected-icon{font-size:50px}
+
+.selected h3{
+font-size:25px;
+margin-top:8px
+}
+
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px
+}
+
+.field{
+display:flex;
+flex-direction:column;
+gap:8px
+}
+
+.field.full{grid-column:1/-1}
+
+.field label{
+font-size:14px;
+color:#c1cedb
+}
+
+.field input,
+.field textarea,
+.field select{
+width:100%;
+padding:14px;
+border-radius:13px;
+border:1px solid rgba(255,255,255,.1);
+outline:none;
+background:rgba(255,255,255,.07);
+color:#fff;
+font-size:15px
+}
+
+.field select option{
+background:#0b1727
+}
+
+.field textarea{
+min-height:120px;
+resize:vertical
+}
+
+.submit{margin-top:20px}
+
+.success{
+display:none;
+text-align:center;
+padding:20px;
+color:#6fffc1;
+line-height:2
+}
+
+footer{
+text-align:center;
+padding:35px 20px;
+border-top:1px solid rgba(255,255,255,.08);
+color:#8191a5
+}
+
+.contact{
+margin-top:12px;
+color:#00d9ff
+}
+
+@media(max-width:600px){
+.login-box{padding:32px 20px}
+.form-grid{grid-template-columns:1fr}
+.field.full{grid-column:auto}
+.hero{padding-top:55px}
+header{padding:12px 18px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage">
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<div class="login-box">
+
+<div class="logo">
+<span>S.H.L</span>
+</div>
+
+<h1>خوش آمدید</h1>
+
+<p>
+برای ورود به سامانه خدمات S.H.L
+رمز عبور خود را وارد کنید.
+</p>
+
+<input
+id="password"
+class="input"
+type="password"
+placeholder="رمز عبور"
+onkeydown="if(event.key==='Enter') login()"
+>
+
+<button class="btn" onclick="login()">
+ورود به خدمات
+</button>
+
+<div id="error" class="error">
+رمز عبور اشتباه است!
+</div>
+
+</div>
+</div>
+
+
+<!-- APP -->
+<div id="app">
+
+<header>
+
+<div class="brand">
+<div class="brand-logo">S.H.L</div>
+<span>S.H.L Services</span>
+</div>
+
+<button class="logout" onclick="logout()">
+خروج
+</button>
+
+</header>
+
+
+<section class="hero">
+
+<h2>
+خدمات حرفه‌ای
+<span class="gradient">S.H.L</span>
+</h2>
+
+<p>
+خدمات سریع، مطمئن و حرفه‌ای برای خانه، محل کار
+و کسب‌وکار شما. خدمت موردنظر خود را انتخاب کنید
+تا درخواست شما ثبت شود.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-title">
+
+<h3>انتخاب نوع خدمات</h3>
+
+<p>
+خدمت مورد نیاز خود را انتخاب کنید
+</p>
+
+</div>
+
+
+<div class="services">
+
+<div class="service"
+onclick="selectService('نظافت','🧹')">
+
+<div class="icon">🧹</div>
+
+<h4>نظافت</h4>
+
+<p>
+نظافت منزل، شرکت، دفتر و فضاهای تجاری
+</p>
+
+</div>
+
+
+<div class="service"
+onclick="selectService('تعمیرات','🔧')">
+
+<div class="icon">🔧</div>
+
+<h4>تعمیرات</h4>
+
+<p>
+تعمیرات عمومی و سرویس تجهیزات
+</p>
+
+</div>
+
+
+<div class="service"
+onclick="selectService('برق‌کاری','⚡')">
+
+<div class="icon">⚡</div>
+
+<h4>برق‌کاری</h4>
+
+<p>
+خدمات برق، روشنایی و تجهیزات برقی
+</p>
+
+</div>
+
+
+<div class="service"
+onclick="selectService('لوله‌کشی','🚰')">
+
+<div class="icon">🚰</div>
+
+<h4>لوله‌کشی</h4>
+
+<p>
+رفع مشکلات آب و لوله‌کشی ساختمان
+</p>
+
+</div>
+
+
+<div class="service"
+onclick="selectService('تهویه و تأسیسات','❄️')">
+
+<div class="icon">❄️</div>
+
+<h4>تهویه و تأسیسات</h4>
+
+<p>
+سرویس کولر، تهویه و تجهیزات تأسیساتی
+</p>
+
+</div>
+
+
+<div class="service"
+onclick="selectService('سایر خدمات','🛠️')">
+
+<div class="icon">🛠️</div>
+
+<h4>سایر خدمات</h4>
+
+<p>
+درخواست خدماتی که در دسته‌های بالا نیست
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- REQUEST FORM -->
+
+<section id="requestSection">
+
+<div class="form-box">
+
+<div class="selected">
+
+<div id="selectedIcon" class="selected-icon">
+🛠️
+</div>
+
+<h3 id="selectedService">
+درخواست خدمات
+</h3>
+
+</div>
+
+
+<div class="form-grid">
+
+<div class="field">
+
+<label>نام و نام خانوادگی</label>
+
+<input
+id="name"
+type="text"
+placeholder="نام شما"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>شماره تماس</label>
+
+<input
+id="phone"
+type="tel"
+placeholder="شماره تماس"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>نوع خدمت</label>
+
+<select id="serviceSelect">
+<option>نظافت</option>
+<option>تعمیرات</option>
+<option>برق‌کاری</option>
+<option>لوله‌کشی</option>
+<option>تهویه و تأسیسات</option>
+<option>سایر خدمات</option>
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>زمان پیشنهادی</label>
+
+<input
+id="date"
+type="datetime-local"
+>
+
+</div>
+
+
+<div class="field full">
+
+<label>توضیحات درخواست</label>
+
+<textarea
+id="description"
+placeholder="توضیح دهید چه خدمتی نیاز دارید..."
+></textarea>
+
+</div>
+
+</div>
+
+
+<button
+class="btn submit"
+onclick="submitRequest()"
+>
+ثبت درخواست
+</button>
+
+
+<div id="success" class="success">
+
+✅ درخواست شما با موفقیت ثبت شد.
+
+<br>
+
+کارشناس S.H.L برای پیگیری درخواست
+با شما تماس خواهد گرفت.
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div>
+© 2026 S.H.L Services
+</div>
+
+<div class="contact">
+خدمات حرفه‌ای | سریع | مطمئن
+</div>
+
+</footer>
+
+</div>
+
+
+<script>
+
+/* رمز ورود دمو */
+const CORRECT_PASSWORD = "SHL2026";
+
+
+function login(){
+
+const password =
+document.getElementById("password").value;
+
+const error =
+document.getElementById("error");
+
+if(password === CORRECT_PASSWORD){
+
+document.getElementById("loginPage").style.display="none";
+
+document.getElementById("app").style.display="block";
+
+error.style.display="none";
+
+}else{
+
+error.style.display="block";
+
+}
+
+}
+
+
+function logout(){
+
+document.getElementById("app").style.display="none";
+
+document.getElementById("loginPage").style.display="flex";
+
+document.getElementById("password").value="";
+
+}
+
+
+function selectService(service,icon){
+
+const section =
+document.getElementById("requestSection");
+
+document.getElementById("selectedService")
+.innerText="درخواست "+service;
+
+document.getElementById("selectedIcon")
+.innerText=icon;
+
+document.getElementById("serviceSelect")
+.value=service;
+
+section.style.display="block";
+
+section.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+
+function submitRequest(){
+
+const name =
+document.getElementById("name").value.trim();
+
+const phone =
+document.getElementById("phone").value.trim();
+
+const description =
+document.getElementById("description").value.trim();
+
+const success =
+document.getElementById("success");
+
+
+if(!name || !phone || !description){
+
+alert("لطفاً نام، شماره تماس و توضیحات درخواست را کامل کنید.");
+
+return;
+
+}
+
+success.style.display="block";
+
+success.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+}
+
+</script>
+
+</body>
+</html>
