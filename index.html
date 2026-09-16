@@ -2,776 +2,3392 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>S.H.L | خدمات حرفه‌ای</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>S.H.L Solutions | خدمات حرفه‌ای</title>
+
+<meta name="description"
+content="S.H.L Solutions ارائه دهنده خدمات حرفه‌ای نظافت، تعمیرات، برق‌کاری، لوله‌کشی و تأسیسات">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Tahoma,Arial,sans-serif}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-background:#07111f;
-color:#fff;
-min-height:100vh;
-overflow-x:hidden
+    font-family:
+    Tahoma,
+    Arial,
+    sans-serif;
+
+    background:#06101d;
+    color:#ffffff;
+
+    overflow-x:hidden;
 }
 
-button,input,textarea,select{font-family:inherit}
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+
+    --bg:#06101d;
+
+    --card:rgba(255,255,255,.065);
+
+    --border:rgba(255,255,255,.11);
+
+    --text:#ffffff;
+
+    --muted:#9caabd;
+
+    --cyan:#00d9ff;
+
+    --blue:#1688ff;
+
+    --purple:#7657ff;
+
+    --green:#35e6a2;
+
+    --danger:#ff667d;
+
+    --shadow:
+    0 25px 70px rgba(0,0,0,.35);
+
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-5;
+
+    background:
+
+    radial-gradient(
+        circle at 10% 10%,
+        rgba(0,217,255,.13),
+        transparent 28%
+    ),
+
+    radial-gradient(
+        circle at 90% 20%,
+        rgba(118,87,255,.14),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 50% 100%,
+        rgba(0,145,255,.08),
+        transparent 35%
+    ),
+
+    #06101d;
+}
+
+.bg-orb{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    filter:blur(5px);
+
+    opacity:.2;
+
+    z-index:-2;
+
+    animation:orbMove 8s ease-in-out infinite;
+}
+
+.bg-orb.one{
+
+    width:250px;
+    height:250px;
+
+    background:#00d9ff;
+
+    top:-100px;
+    right:-70px;
+}
+
+.bg-orb.two{
+
+    width:220px;
+    height:220px;
+
+    background:#7657ff;
+
+    left:-80px;
+    bottom:10%;
+
+    animation-delay:2s;
+}
+
+.bg-orb.three{
+
+    width:150px;
+    height:150px;
+
+    background:#1688ff;
+
+    right:20%;
+    top:40%;
+
+    animation-delay:4s;
+}
+
+@keyframes orbMove{
+
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translateY(30px) translateX(15px);
+    }
+}
+
+/* =========================================================
+   LOGIN PAGE
+========================================================= */
 
 #loginPage{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:20px;
-position:relative;
-overflow:hidden;
-background:
-radial-gradient(circle at 15% 20%,#164c70 0,transparent 30%),
-radial-gradient(circle at 85% 80%,#48206c 0,transparent 30%),
-#07111f
-}
 
-.orb{
-position:absolute;
-border-radius:50%;
-filter:blur(4px);
-opacity:.3;
-animation:float 6s ease-in-out infinite
-}
+    min-height:100vh;
 
-.orb1{
-width:250px;height:250px;
-background:#00d9ff;
-top:-100px;right:-70px
-}
+    display:flex;
 
-.orb2{
-width:210px;height:210px;
-background:#8e44ad;
-bottom:-90px;left:-60px;
-animation-delay:2s
-}
+    align-items:center;
 
-@keyframes float{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(25px)}
+    justify-content:center;
+
+    padding:25px;
+
+    position:relative;
+
+    overflow:hidden;
 }
 
 .login-box{
-width:100%;
-max-width:420px;
-padding:40px 30px;
-text-align:center;
-border-radius:28px;
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.14);
-backdrop-filter:blur(20px);
-box-shadow:0 25px 70px rgba(0,0,0,.45);
-position:relative;
-z-index:2
+
+    width:100%;
+
+    max-width:450px;
+
+    padding:45px 32px;
+
+    text-align:center;
+
+    background:
+    rgba(255,255,255,.075);
+
+    border:1px solid
+    rgba(255,255,255,.14);
+
+    border-radius:32px;
+
+    backdrop-filter:blur(22px);
+
+    box-shadow:
+    0 30px 90px
+    rgba(0,0,0,.5);
+
+    position:relative;
+
+    z-index:5;
+
+    animation:loginAppear .8s ease;
 }
 
-.logo{
-width:110px;
-height:110px;
-margin:0 auto 22px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:30px;
-background:linear-gradient(135deg,#00d9ff,#6c5ce7);
-box-shadow:0 0 40px rgba(0,217,255,.3);
-font-size:27px;
-font-weight:bold;
-letter-spacing:5px;
-transform:rotate(-4deg)
+@keyframes loginAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
 }
 
-.logo span{transform:rotate(4deg)}
+/* LOGO */
+
+.main-logo{
+
+    width:115px;
+
+    height:115px;
+
+    margin:0 auto 25px;
+
+    border-radius:32px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00d9ff,
+        #1688ff 45%,
+        #7657ff
+    );
+
+    box-shadow:
+    0 0 50px
+    rgba(0,217,255,.25);
+
+    transform:rotate(-4deg);
+}
+
+.main-logo::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-5px;
+
+    border-radius:35px;
+
+    border:1px solid
+    rgba(255,255,255,.25);
+}
+
+.logo-text{
+
+    font-size:28px;
+
+    font-weight:900;
+
+    letter-spacing:4px;
+
+    transform:rotate(4deg);
+}
 
 .login-box h1{
-font-size:28px;
-margin-bottom:10px
+
+    font-size:28px;
+
+    margin-bottom:10px;
 }
 
-.login-box>p{
-color:#aebdce;
-line-height:1.9;
-margin-bottom:28px
+.login-box .subtitle{
+
+    color:var(--muted);
+
+    line-height:2;
+
+    margin-bottom:30px;
 }
 
-.input{
-width:100%;
-padding:16px;
-border-radius:14px;
-border:1px solid rgba(255,255,255,.12);
-outline:none;
-background:rgba(255,255,255,.08);
-color:#fff;
-text-align:center;
-font-size:16px;
-margin-bottom:14px
+.password-wrapper{
+
+    position:relative;
+
+    margin-bottom:15px;
 }
 
-.input::placeholder{color:#aab8c8}
+.password-input{
 
-.btn{
-width:100%;
-padding:16px;
-border:0;
-border-radius:14px;
-cursor:pointer;
-font-size:16px;
-font-weight:bold;
-color:#fff;
-background:linear-gradient(135deg,#00b8db,#6c5ce7);
-transition:.3s
+    width:100%;
+
+    height:56px;
+
+    border-radius:15px;
+
+    border:1px solid
+    rgba(255,255,255,.12);
+
+    outline:none;
+
+    background:
+    rgba(255,255,255,.07);
+
+    color:#fff;
+
+    text-align:center;
+
+    font-size:16px;
+
+    padding:0 50px 0 15px;
+
+    transition:.3s;
 }
 
-.btn:hover{
-transform:translateY(-3px);
-box-shadow:0 10px 30px rgba(0,217,255,.25)
+.password-input:focus{
+
+    border-color:var(--cyan);
+
+    box-shadow:
+    0 0 0 3px
+    rgba(0,217,255,.08);
 }
 
-.error{
-display:none;
-margin-top:15px;
-color:#ff7f8f
+.eye-button{
+
+    position:absolute;
+
+    right:12px;
+
+    top:8px;
+
+    width:40px;
+
+    height:40px;
+
+    border:0;
+
+    border-radius:10px;
+
+    color:#b7c5d6;
+
+    background:transparent;
+
+    font-size:19px;
 }
 
-/* APP */
+.primary-button{
 
-#app{display:none;min-height:100vh}
+    width:100%;
+
+    height:56px;
+
+    border:0;
+
+    border-radius:15px;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00bfe5,
+        #1688ff,
+        #7657ff
+    );
+
+    box-shadow:
+    0 12px 30px
+    rgba(0,150,255,.18);
+
+    transition:.3s;
+}
+
+.primary-button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 18px 40px
+    rgba(0,150,255,.28);
+}
+
+.login-error{
+
+    display:none;
+
+    color:#ff7b8d;
+
+    margin-top:15px;
+
+    font-size:14px;
+}
+
+.login-info{
+
+    margin-top:25px;
+
+    font-size:12px;
+
+    color:#728197;
+}
+
+/* =========================================================
+   APP
+========================================================= */
+
+#app{
+
+    display:none;
+
+    min-height:100vh;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
-position:sticky;
-top:0;
-z-index:20;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:14px 6%;
-background:rgba(7,17,31,.88);
-backdrop-filter:blur(15px);
-border-bottom:1px solid rgba(255,255,255,.08)
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    height:78px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 6%;
+
+    background:
+    rgba(6,16,29,.82);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+    1px solid
+    rgba(255,255,255,.08);
 }
 
 .brand{
-display:flex;
-align-items:center;
-gap:12px;
-font-size:21px;
-font-weight:bold
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
 }
 
 .brand-logo{
-width:48px;
-height:48px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:14px;
-background:linear-gradient(135deg,#00d9ff,#6c5ce7);
-font-size:13px;
-font-weight:bold;
-letter-spacing:2px
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00d9ff,
+        #7657ff
+    );
 }
 
-.logout{
-border:1px solid rgba(255,255,255,.12);
-background:rgba(255,255,255,.06);
-color:#fff;
-padding:10px 17px;
-border-radius:12px;
-cursor:pointer
+.brand-name{
+
+    font-size:18px;
+
+    font-weight:bold;
 }
+
+.brand-name span{
+
+    display:block;
+
+    color:#7e8ea3;
+
+    font-size:10px;
+
+    margin-top:3px;
+
+    letter-spacing:1px;
+}
+
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.header-button{
+
+    padding:10px 16px;
+
+    border-radius:12px;
+
+    color:#fff;
+
+    border:
+    1px solid
+    rgba(255,255,255,.12);
+
+    background:
+    rgba(255,255,255,.06);
+
+    transition:.3s;
+}
+
+.header-button:hover{
+
+    background:
+    rgba(255,255,255,.11);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
-padding:75px 20px 50px;
-text-align:center
+
+    min-height:600px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:80px 20px;
+
+    position:relative;
+}
+
+.hero-content{
+
+    max-width:850px;
+
+    animation:heroAppear 1s ease;
+}
+
+@keyframes heroAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:9px 15px;
+
+    border-radius:50px;
+
+    background:
+    rgba(0,217,255,.08);
+
+    border:
+    1px solid
+    rgba(0,217,255,.2);
+
+    color:#7eefff;
+
+    font-size:13px;
+
+    margin-bottom:22px;
+}
+
+.status-dot{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#35e6a2;
+
+    box-shadow:
+    0 0 10px
+    #35e6a2;
 }
 
 .hero h2{
-font-size:clamp(32px,7vw,60px);
-line-height:1.4;
-margin-bottom:15px
+
+    font-size:
+    clamp(38px,7vw,72px);
+
+    line-height:1.35;
+
+    margin-bottom:20px;
 }
 
-.gradient{
-background:linear-gradient(90deg,#00d9ff,#a77cff);
--webkit-background-clip:text;
-color:transparent
+.gradient-text{
+
+    background:
+    linear-gradient(
+        90deg,
+        #00d9ff,
+        #1688ff,
+        #a47cff
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
 }
 
-.hero p{
-max-width:680px;
-margin:auto;
-color:#a9b8c8;
-line-height:2;
-font-size:16px
+.hero-description{
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:#a7b6c9;
+
+    font-size:17px;
+
+    line-height:2;
+
+    margin-bottom:30px;
 }
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+.hero-button{
+
+    min-width:170px;
+
+    padding:15px 22px;
+
+    border-radius:14px;
+
+    border:0;
+
+    font-weight:bold;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00bfe5,
+        #7657ff
+    );
+
+    transition:.3s;
+}
+
+.hero-button:hover{
+
+    transform:translateY(-4px);
+}
+
+.hero-button.secondary{
+
+    background:
+    rgba(255,255,255,.06);
+
+    border:
+    1px solid
+    rgba(255,255,255,.12);
+}
+
+/* =========================================================
+   SECTION
+========================================================= */
 
 .section{
-max-width:1150px;
-margin:auto;
-padding:20px 20px 70px
+
+    max-width:1180px;
+
+    margin:auto;
+
+    padding:70px 20px;
 }
 
-.section-title{
-text-align:center;
-margin-bottom:35px
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:45px;
 }
 
-.section-title h3{
-font-size:30px;
-margin-bottom:10px
+.section-heading .small{
+
+    color:#00d9ff;
+
+    font-size:13px;
+
+    margin-bottom:10px;
+
+    font-weight:bold;
 }
 
-.section-title p{color:#899aae}
+.section-heading h3{
 
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:20px
+    font-size:
+    clamp(28px,5vw,40px);
+
+    margin-bottom:12px;
 }
 
-.service{
-position:relative;
-overflow:hidden;
-padding:28px 22px;
-border-radius:23px;
-cursor:pointer;
-background:linear-gradient(
-145deg,
-rgba(255,255,255,.10),
-rgba(255,255,255,.035)
-);
-border:1px solid rgba(255,255,255,.10);
-transition:.35s
+.section-heading p{
+
+    color:#8798ac;
+
+    line-height:1.9;
 }
 
-.service:hover{
-transform:translateY(-8px);
-border-color:rgba(0,217,255,.55);
-box-shadow:0 15px 35px rgba(0,0,0,.25)
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(230px,1fr)
+    );
+
+    gap:20px;
 }
 
-.icon{
-font-size:45px;
-margin-bottom:17px
+.service-card{
+
+    min-height:245px;
+
+    padding:28px 23px;
+
+    border-radius:24px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.085),
+        rgba(255,255,255,.035)
+    );
+
+    border:
+    1px solid
+    rgba(255,255,255,.09);
+
+    transition:.35s;
+
+    cursor:pointer;
 }
 
-.service h4{
-font-size:19px;
-margin-bottom:10px
+.service-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    right:-50px;
+
+    top:-50px;
+
+    background:#00d9ff;
+
+    filter:blur(55px);
+
+    opacity:0;
+
+    transition:.4s;
 }
 
-.service p{
-color:#91a1b4;
-font-size:14px;
-line-height:1.8
+.service-card:hover{
+
+    transform:
+    translateY(-9px);
+
+    border-color:
+    rgba(0,217,255,.4);
+
+    box-shadow:
+    0 20px 50px
+    rgba(0,0,0,.28);
 }
 
-/* FORM */
+.service-card:hover::before{
+
+    opacity:.2;
+}
+
+.service-icon{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:19px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:31px;
+
+    background:
+    rgba(0,217,255,.08);
+
+    border:
+    1px solid
+    rgba(0,217,255,.14);
+
+    margin-bottom:20px;
+
+    position:relative;
+}
+
+.service-card h4{
+
+    font-size:19px;
+
+    margin-bottom:10px;
+
+    position:relative;
+}
+
+.service-card p{
+
+    color:#8fa0b4;
+
+    line-height:1.9;
+
+    font-size:14px;
+
+    position:relative;
+}
+
+.service-link{
+
+    display:inline-block;
+
+    margin-top:17px;
+
+    color:#00d9ff;
+
+    font-size:13px;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(180px,1fr)
+    );
+
+    gap:15px;
+
+    margin-top:30px;
+}
+
+.stat{
+
+    text-align:center;
+
+    padding:25px 15px;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,255,255,.045);
+
+    border:
+    1px solid
+    rgba(255,255,255,.07);
+}
+
+.stat strong{
+
+    display:block;
+
+    font-size:30px;
+
+    color:#fff;
+
+    margin-bottom:7px;
+}
+
+.stat span{
+
+    color:#8192a7;
+
+    font-size:13px;
+}
+
+/* =========================================================
+   WHY US
+========================================================= */
+
+.why-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(240px,1fr)
+    );
+
+    gap:20px;
+}
+
+.why-card{
+
+    padding:25px;
+
+    border-radius:21px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid
+    rgba(255,255,255,.08);
+}
+
+.why-number{
+
+    color:#00d9ff;
+
+    font-size:13px;
+
+    margin-bottom:14px;
+
+    font-weight:bold;
+}
+
+.why-card h4{
+
+    font-size:18px;
+
+    margin-bottom:10px;
+}
+
+.why-card p{
+
+    color:#8fa0b4;
+
+    line-height:1.9;
+
+    font-size:14px;
+}
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(250px,1fr)
+    );
+
+    gap:20px;
+}
+
+.project{
+
+    min-height:230px;
+
+    padding:25px;
+
+    border-radius:24px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    border:
+    1px solid
+    rgba(255,255,255,.1);
+
+    background:
+    linear-gradient(
+        145deg,
+        #11263c,
+        #0b1727
+    );
+
+    transition:.35s;
+}
+
+.project:nth-child(2){
+
+    background:
+    linear-gradient(
+        145deg,
+        #1b2442,
+        #10182c
+    );
+}
+
+.project:nth-child(3){
+
+    background:
+    linear-gradient(
+        145deg,
+        #14373b,
+        #0c2029
+    );
+}
+
+.project:nth-child(4){
+
+    background:
+    linear-gradient(
+        145deg,
+        #322342,
+        #17162d
+    );
+}
+
+.project:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:
+    0 20px 50px
+    rgba(0,0,0,.3);
+}
+
+.project-icon{
+
+    position:absolute;
+
+    top:25px;
+
+    right:25px;
+
+    font-size:50px;
+
+    opacity:.75;
+}
+
+.project h4{
+
+    font-size:20px;
+
+    margin-bottom:8px;
+
+    position:relative;
+}
+
+.project p{
+
+    color:#9aabba;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+    position:relative;
+}
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonials{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(250px,1fr)
+    );
+
+    gap:20px;
+}
+
+.testimonial{
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:
+    rgba(255,255,255,.055);
+
+    border:
+    1px solid
+    rgba(255,255,255,.08);
+}
+
+.stars{
+
+    color:#ffd45c;
+
+    letter-spacing:3px;
+
+    margin-bottom:15px;
+}
+
+.testimonial p{
+
+    color:#a0afc0;
+
+    line-height:2;
+
+    font-size:14px;
+
+    margin-bottom:18px;
+}
+
+.customer{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.avatar{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00d9ff,
+        #7657ff
+    );
+
+    font-weight:bold;
+}
+
+.customer strong{
+
+    display:block;
+
+    font-size:14px;
+}
+
+.customer span{
+
+    color:#708095;
+
+    font-size:11px;
+}
+
+/* =========================================================
+   REQUEST FORM
+========================================================= */
 
 #requestSection{
-display:none;
-max-width:800px;
-margin:0 auto 70px;
-padding:0 20px
+
+    display:none;
+
+    max-width:900px;
+
+    margin:
+    0 auto 80px;
+
+    padding:
+    0 20px;
 }
 
-.form-box{
-padding:30px;
-border-radius:25px;
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.1)
+.request-box{
+
+    padding:35px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.085),
+        rgba(255,255,255,.04)
+    );
+
+    border:
+    1px solid
+    rgba(255,255,255,.1);
+
+    box-shadow:var(--shadow);
 }
 
-.selected{text-align:center;margin-bottom:25px}
+.request-header{
 
-.selected-icon{font-size:50px}
+    text-align:center;
 
-.selected h3{
-font-size:25px;
-margin-top:8px
+    margin-bottom:30px;
+}
+
+.request-icon{
+
+    font-size:48px;
+
+    margin-bottom:10px;
+}
+
+.request-header h3{
+
+    font-size:27px;
+
+    margin-bottom:8px;
+}
+
+.request-header p{
+
+    color:#8fa0b4;
 }
 
 .form-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:16px;
 }
 
-.field{
-display:flex;
-flex-direction:column;
-gap:8px
+.form-field{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
 }
 
-.field.full{grid-column:1/-1}
+.form-field.full{
 
-.field label{
-font-size:14px;
-color:#c1cedb
+    grid-column:
+    1 / -1;
 }
 
-.field input,
-.field textarea,
-.field select{
-width:100%;
-padding:14px;
-border-radius:13px;
-border:1px solid rgba(255,255,255,.1);
-outline:none;
-background:rgba(255,255,255,.07);
-color:#fff;
-font-size:15px
+.form-field label{
+
+    color:#c0ccd9;
+
+    font-size:13px;
 }
 
-.field select option{
-background:#0b1727
+.form-field input,
+.form-field select,
+.form-field textarea{
+
+    width:100%;
+
+    border:
+    1px solid
+    rgba(255,255,255,.1);
+
+    outline:none;
+
+    border-radius:13px;
+
+    padding:14px;
+
+    color:#fff;
+
+    background:
+    rgba(255,255,255,.065);
+
+    transition:.3s;
 }
 
-.field textarea{
-min-height:120px;
-resize:vertical
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus{
+
+    border-color:
+    rgba(0,217,255,.55);
+
+    box-shadow:
+    0 0 0 3px
+    rgba(0,217,255,.06);
 }
 
-.submit{margin-top:20px}
+.form-field select option{
 
-.success{
-display:none;
-text-align:center;
-padding:20px;
-color:#6fffc1;
-line-height:2
+    background:#0b1727;
+
+    color:#fff;
 }
+
+.form-field textarea{
+
+    min-height:130px;
+
+    resize:vertical;
+}
+
+.submit-button{
+
+    width:100%;
+
+    margin-top:20px;
+
+    height:55px;
+
+    border:0;
+
+    border-radius:14px;
+
+    color:#fff;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00bfe5,
+        #7657ff
+    );
+
+    transition:.3s;
+}
+
+.submit-button:hover{
+
+    transform:translateY(-3px);
+}
+
+.success-message{
+
+    display:none;
+
+    text-align:center;
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    color:#6fffc1;
+
+    background:
+    rgba(53,230,162,.06);
+
+    border:
+    1px solid
+    rgba(53,230,162,.15);
+
+    line-height:2;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-box{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(220px,1fr)
+    );
+
+    gap:15px;
+}
+
+.contact-item{
+
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid
+    rgba(255,255,255,.08);
+}
+
+.contact-item .contact-icon{
+
+    font-size:30px;
+
+    margin-bottom:12px;
+}
+
+.contact-item h4{
+
+    margin-bottom:8px;
+}
+
+.contact-item p{
+
+    color:#8798ac;
+
+    font-size:13px;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+
+    max-width:1100px;
+
+    margin:
+    20px auto 80px;
+
+    padding:
+    55px 25px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,217,255,.1),
+        rgba(118,87,255,.12)
+    );
+
+    border:
+    1px solid
+    rgba(255,255,255,.1);
+}
+
+.cta h3{
+
+    font-size:
+    clamp(26px,5vw,38px);
+
+    margin-bottom:12px;
+}
+
+.cta p{
+
+    color:#93a4b8;
+
+    line-height:2;
+
+    margin-bottom:25px;
+}
+
+.cta button{
+
+    padding:15px 28px;
+
+    border:0;
+
+    border-radius:14px;
+
+    color:#fff;
+
+    font-weight:bold;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00bfe5,
+        #7657ff
+    );
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
-text-align:center;
-padding:35px 20px;
-border-top:1px solid rgba(255,255,255,.08);
-color:#8191a5
+
+    padding:
+    45px 20px 25px;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.07);
+
+    background:
+    rgba(0,0,0,.12);
 }
 
-.contact{
-margin-top:12px;
-color:#00d9ff
+.footer-content{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    1.5fr 1fr 1fr;
+
+    gap:35px;
 }
 
-@media(max-width:600px){
-.login-box{padding:32px 20px}
-.form-grid{grid-template-columns:1fr}
-.field.full{grid-column:auto}
-.hero{padding-top:55px}
-header{padding:12px 18px}
+.footer-brand h3{
+
+    font-size:22px;
+
+    margin-bottom:10px;
 }
+
+.footer-brand p{
+
+    color:#8191a5;
+
+    font-size:13px;
+
+    line-height:2;
+}
+
+.footer-column h4{
+
+    margin-bottom:15px;
+
+    font-size:15px;
+}
+
+.footer-column a{
+
+    display:block;
+
+    color:#8191a5;
+
+    font-size:13px;
+
+    margin-bottom:10px;
+
+    transition:.3s;
+}
+
+.footer-column a:hover{
+
+    color:#00d9ff;
+}
+
+.footer-bottom{
+
+    max-width:1100px;
+
+    margin:
+    35px auto 0;
+
+    padding-top:20px;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.06);
+
+    text-align:center;
+
+    color:#617084;
+
+    font-size:12px;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+#toast{
+
+    position:fixed;
+
+    left:20px;
+
+    bottom:20px;
+
+    z-index:500;
+
+    padding:15px 20px;
+
+    border-radius:14px;
+
+    background:
+    rgba(12,28,46,.95);
+
+    border:
+    1px solid
+    rgba(0,217,255,.2);
+
+    color:#fff;
+
+    box-shadow:
+    0 15px 40px
+    rgba(0,0,0,.35);
+
+    transform:
+    translateY(100px);
+
+    opacity:0;
+
+    transition:.4s;
+}
+
+#toast.show{
+
+    transform:
+    translateY(0);
+
+    opacity:1;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    header{
+
+        height:auto;
+
+        padding:
+        12px 18px;
+
+    }
+
+    .brand-name{
+
+        font-size:15px;
+    }
+
+    .brand-name span{
+
+        display:none;
+    }
+
+    .brand-logo{
+
+        width:42px;
+        height:42px;
+    }
+
+    .header-button{
+
+        padding:
+        9px 12px;
+
+        font-size:12px;
+    }
+
+    .hero{
+
+        min-height:
+        560px;
+
+        padding:
+        65px 18px;
+    }
+
+    .hero h2{
+
+        font-size:
+        39px;
+    }
+
+    .hero-description{
+
+        font-size:14px;
+    }
+
+    .section{
+
+        padding:
+        55px 18px;
+    }
+
+    .form-grid{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .form-field.full{
+
+        grid-column:auto;
+    }
+
+    .request-box{
+
+        padding:
+        25px 18px;
+    }
+
+    .footer-content{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .login-box{
+
+        padding:
+        35px 20px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div id="loginPage">
-
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-
-<div class="login-box">
-
-<div class="logo">
-<span>S.H.L</span>
-</div>
-
-<h1>خوش آمدید</h1>
-
-<p>
-برای ورود به سامانه خدمات S.H.L
-رمز عبور خود را وارد کنید.
-</p>
-
-<input
-id="password"
-class="input"
-type="password"
-placeholder="رمز عبور"
-onkeydown="if(event.key==='Enter') login()"
->
-
-<button class="btn" onclick="login()">
-ورود به خدمات
-</button>
-
-<div id="error" class="error">
-رمز عبور اشتباه است!
-</div>
-
-</div>
-</div>
+<div class="bg-orb one"></div>
+<div class="bg-orb two"></div>
+<div class="bg-orb three"></div>
 
 
-<!-- APP -->
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<section id="loginPage">
+
+    <div class="login-box">
+
+        <div class="main-logo">
+            <div class="logo-text">
+                S.H.L
+            </div>
+        </div>
+
+        <h1>
+            S.H.L Solutions
+        </h1>
+
+        <p class="subtitle">
+            سامانه خدمات حرفه‌ای
+            <br>
+            سریع، مطمئن و حرفه‌ای
+        </p>
+
+        <div class="password-wrapper">
+
+            <input
+                id="password"
+                class="password-input"
+                type="password"
+                placeholder="رمز عبور را وارد کنید"
+                onkeydown="
+                if(event.key==='Enter'){
+                    login();
+                }
+                "
+            >
+
+            <button
+                class="eye-button"
+                onclick="togglePassword()"
+                type="button"
+                id="eyeButton"
+            >
+                👁️
+            </button>
+
+        </div>
+
+        <button
+            class="primary-button"
+            onclick="login()"
+        >
+            ورود به سامانه
+        </button>
+
+        <div
+            id="loginError"
+            class="login-error"
+        >
+            ❌ رمز عبور صحیح نیست.
+        </div>
+
+        <div class="login-info">
+            S.H.L Solutions © 2026
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN APP
+===================================================== -->
+
 <div id="app">
+
+
+<!-- HEADER -->
 
 <header>
 
-<div class="brand">
-<div class="brand-logo">S.H.L</div>
-<span>S.H.L Services</span>
-</div>
+    <a
+        href="#home"
+        class="brand"
+    >
 
-<button class="logout" onclick="logout()">
-خروج
-</button>
+        <div class="brand-logo">
+            S.H.L
+        </div>
+
+        <div class="brand-name">
+            S.H.L Solutions
+            <span>
+                PROFESSIONAL SERVICES
+            </span>
+        </div>
+
+    </a>
+
+
+    <div class="header-actions">
+
+        <button
+            class="header-button"
+            onclick="scrollToRequest()"
+        >
+            درخواست خدمات
+        </button>
+
+        <button
+            class="header-button"
+            onclick="logout()"
+        >
+            خروج
+        </button>
+
+    </div>
 
 </header>
 
 
-<section class="hero">
 
-<h2>
-خدمات حرفه‌ای
-<span class="gradient">S.H.L</span>
-</h2>
+<!-- HERO -->
 
-<p>
-خدمات سریع، مطمئن و حرفه‌ای برای خانه، محل کار
-و کسب‌وکار شما. خدمت موردنظر خود را انتخاب کنید
-تا درخواست شما ثبت شود.
-</p>
+<section
+    class="hero"
+    id="home"
+>
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+
+            <span class="status-dot"></span>
+
+            آماده دریافت درخواست خدمات
+
+        </div>
+
+
+        <h2>
+
+            خدمات حرفه‌ای
+
+            <br>
+
+            با برند
+            <span class="gradient-text">
+                S.H.L
+            </span>
+
+        </h2>
+
+
+        <p class="hero-description">
+
+            ما مجموعه‌ای از خدمات تخصصی برای
+            خانه، دفتر و کسب‌وکار شما ارائه می‌کنیم.
+            کافی است خدمت موردنظر خود را انتخاب
+            کنید و درخواست خود را ثبت کنید.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <button
+                class="hero-button"
+                onclick="scrollToServices()"
+            >
+                مشاهده خدمات
+            </button>
+
+            <button
+                class="hero-button secondary"
+                onclick="scrollToRequest()"
+            >
+                ثبت درخواست
+            </button>
+
+        </div>
+
+    </div>
 
 </section>
 
+
+
+<!-- SERVICES -->
+
+<section
+    class="section"
+    id="services"
+>
+
+    <div class="section-heading">
+
+        <div class="small">
+            OUR SERVICES
+        </div>
+
+        <h3>
+            چه خدمتی نیاز دارید؟
+        </h3>
+
+        <p>
+            یکی از خدمات زیر را انتخاب کنید
+            تا فرم درخواست برای شما باز شود.
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+
+        <!-- SERVICE 1 -->
+
+        <div
+            class="service-card"
+            onclick="
+            selectService(
+                'نظافت',
+                '🧹'
+            )
+            "
+        >
+
+            <div class="service-icon">
+                🧹
+            </div>
+
+            <h4>
+                خدمات نظافت
+            </h4>
+
+            <p>
+                نظافت منزل، دفتر، شرکت،
+                فروشگاه و فضاهای کاری.
+            </p>
+
+            <span class="service-link">
+                درخواست خدمت ←
+            </span>
+
+        </div>
+
+
+        <!-- SERVICE 2 -->
+
+        <div
+            class="service-card"
+            onclick="
+            selectService(
+                'تعمیرات',
+                '🔧'
+            )
+            "
+        >
+
+            <div class="service-icon">
+                🔧
+            </div>
+
+            <h4>
+                تعمیرات
+            </h4>
+
+            <p>
+                تعمیرات عمومی ساختمان،
+                تجهیزات و وسایل مختلف.
+            </p>
+
+            <span class="service-link">
+                درخواست خدمت ←
+            </span>
+
+        </div>
+
+
+        <!-- SERVICE 3 -->
+
+        <div
+            class="service-card"
+            onclick="
+            selectService(
+                'برق‌کاری',
+                '⚡'
+            )
+            "
+        >
+
+            <div class="service-icon">
+                ⚡
+            </div>
+
+            <h4>
+                برق‌کاری
+            </h4>
+
+            <p>
+                نصب و تعمیر تجهیزات برق،
+                روشنایی و سیم‌کشی.
+            </p>
+
+            <span class="service-link">
+                درخواست خدمت ←
+            </span>
+
+        </div>
+
+
+        <!-- SERVICE 4 -->
+
+        <div
+            class="service-card"
+            onclick="
+            selectService(
+                'لوله‌کشی',
+                '🚰'
+            )
+            "
+        >
+
+            <div class="service-icon">
+                🚰
+            </div>
+
+            <h4>
+                لوله‌کشی
+            </h4>
+
+            <p>
+                رفع مشکلات آب، لوله‌کشی،
+                شیرآلات و سیستم‌های ساختمان.
+            </p>
+
+            <span class="service-link">
+                درخواست خدمت ←
+            </span>
+
+        </div>
+
+
+        <!-- SERVICE 5 -->
+
+        <div
+            class="service-card"
+            onclick="
+            selectService(
+                'تهویه و تأسیسات',
+                '❄️'
+            )
+            "
+        >
+
+            <div class="service-icon">
+                ❄️
+            </div>
+
+            <h4>
+                تهویه و تأسیسات
+            </h4>
+
+            <p>
+                سرویس و نگهداری تجهیزات
+                تهویه و تأسیسات.
+            </p>
+
+            <span class="service-link">
+                درخواست خدمت ←
+            </span>
+
+        </div>
+
+
+        <!-- SERVICE 6 -->
+
+        <div
+            class="service-card"
+            onclick="
+            selectService(
+                'خدمات عمومی',
+                '🛠️'
+            )
+            "
+        >
+
+            <div class="service-icon">
+                🛠️
+            </div>
+
+            <h4>
+                خدمات عمومی
+            </h4>
+
+            <p>
+                برای درخواست‌هایی که
+                در دسته‌های بالا قرار نمی‌گیرند.
+            </p>
+
+            <span class="service-link">
+                درخواست خدمت ←
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <strong>
+                24/7
+            </strong>
+
+            <span>
+                پاسخگویی
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                +500
+            </strong>
+
+            <span>
+                پروژه نمونه
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                +20
+            </strong>
+
+            <span>
+                متخصص خدمات
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                100%
+            </strong>
+
+            <span>
+                پیگیری درخواست
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- WHY US -->
 
 <section class="section">
 
-<div class="section-title">
+    <div class="section-heading">
 
-<h3>انتخاب نوع خدمات</h3>
+        <div class="small">
+            WHY S.H.L
+        </div>
 
-<p>
-خدمت مورد نیاز خود را انتخاب کنید
-</p>
+        <h3>
+            چرا S.H.L Solutions؟
+        </h3>
 
-</div>
+        <p>
+            هدف ما ارائه تجربه‌ای ساده و حرفه‌ای
+            برای دریافت خدمات است.
+        </p>
 
-
-<div class="services">
-
-<div class="service"
-onclick="selectService('نظافت','🧹')">
-
-<div class="icon">🧹</div>
-
-<h4>نظافت</h4>
-
-<p>
-نظافت منزل، شرکت، دفتر و فضاهای تجاری
-</p>
-
-</div>
+    </div>
 
 
-<div class="service"
-onclick="selectService('تعمیرات','🔧')">
-
-<div class="icon">🔧</div>
-
-<h4>تعمیرات</h4>
-
-<p>
-تعمیرات عمومی و سرویس تجهیزات
-</p>
-
-</div>
+    <div class="why-grid">
 
 
-<div class="service"
-onclick="selectService('برق‌کاری','⚡')">
+        <div class="why-card">
 
-<div class="icon">⚡</div>
+            <div class="why-number">
+                01
+            </div>
 
-<h4>برق‌کاری</h4>
+            <h4>
+                پاسخگویی سریع
+            </h4>
 
-<p>
-خدمات برق، روشنایی و تجهیزات برقی
-</p>
+            <p>
+                درخواست شما ثبت شده و برای
+                پیگیری آماده می‌شود.
+            </p>
 
-</div>
-
-
-<div class="service"
-onclick="selectService('لوله‌کشی','🚰')">
-
-<div class="icon">🚰</div>
-
-<h4>لوله‌کشی</h4>
-
-<p>
-رفع مشکلات آب و لوله‌کشی ساختمان
-</p>
-
-</div>
+        </div>
 
 
-<div class="service"
-onclick="selectService('تهویه و تأسیسات','❄️')">
+        <div class="why-card">
 
-<div class="icon">❄️</div>
+            <div class="why-number">
+                02
+            </div>
 
-<h4>تهویه و تأسیسات</h4>
+            <h4>
+                خدمات متنوع
+            </h4>
 
-<p>
-سرویس کولر، تهویه و تجهیزات تأسیساتی
-</p>
+            <p>
+                چندین نوع خدمت در یک سامانه
+                ساده در اختیار شما قرار دارد.
+            </p>
 
-</div>
+        </div>
 
 
-<div class="service"
-onclick="selectService('سایر خدمات','🛠️')">
+        <div class="why-card">
 
-<div class="icon">🛠️</div>
+            <div class="why-number">
+                03
+            </div>
 
-<h4>سایر خدمات</h4>
+            <h4>
+                تجربه حرفه‌ای
+            </h4>
 
-<p>
-درخواست خدماتی که در دسته‌های بالا نیست
-</p>
+            <p>
+                ساختار سایت برای ارائه خدمات
+                حرفه‌ای و سازمان‌یافته طراحی شده است.
+            </p>
 
-</div>
+        </div>
 
-</div>
+
+        <div class="why-card">
+
+            <div class="why-number">
+                04
+            </div>
+
+            <h4>
+                تجربه کاربری ساده
+            </h4>
+
+            <p>
+                مشتری بدون پیچیدگی می‌تواند
+                خدمت موردنظر خود را انتخاب کند.
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
+
+
+
+<!-- PROJECTS -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div class="small">
+            PORTFOLIO
+        </div>
+
+        <h3>
+            نمونه پروژه‌ها
+        </h3>
+
+        <p>
+            بخشی از خدمات و پروژه‌های قابل ارائه
+            توسط مجموعه S.H.L.
+        </p>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+        <div class="project">
+
+            <div class="project-icon">
+                🏠
+            </div>
+
+            <h4>
+                خدمات ساختمان
+            </h4>
+
+            <p>
+                تعمیرات و نگهداری بخش‌های مختلف
+                ساختمان و واحدهای مسکونی.
+            </p>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-icon">
+                🏢
+            </div>
+
+            <h4>
+                خدمات شرکت‌ها
+            </h4>
+
+            <p>
+                ارائه خدمات نظافت و نگهداری
+                برای دفاتر و شرکت‌ها.
+            </p>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-icon">
+                🔌
+            </div>
+
+            <h4>
+                پروژه برق
+            </h4>
+
+            <p>
+                خدمات نصب، تعمیر و نگهداری
+                تجهیزات برقی.
+            </p>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-icon">
+                🛠️
+            </div>
+
+            <h4>
+                تعمیرات عمومی
+            </h4>
+
+            <p>
+                انجام خدمات عمومی و تعمیرات
+                موردنیاز مشتریان.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- TESTIMONIALS -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div class="small">
+            CLIENTS
+        </div>
+
+        <h3>
+            نظر مشتریان
+        </h3>
+
+        <p>
+            نمونه‌ای از بازخورد مشتریان برای نمایش
+            در نسخه نمونه‌کار.
+        </p>
+
+    </div>
+
+
+    <div class="testimonials">
+
+
+        <div class="testimonial">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                روند ثبت درخواست خیلی ساده بود
+                و اطلاعات موردنیاز را سریع وارد کردم.
+            </p>
+
+            <div class="customer">
+
+                <div class="avatar">
+                    م
+                </div>
+
+                <div>
+                    <strong>
+                        محمد رضایی
+                    </strong>
+
+                    <span>
+                        مشتری نمونه
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="testimonial">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                طراحی سایت حس یک شرکت خدماتی
+                مدرن و حرفه‌ای را منتقل می‌کند.
+            </p>
+
+            <div class="customer">
+
+                <div class="avatar">
+                    س
+                </div>
+
+                <div>
+                    <strong>
+                        سارا احمدی
+                    </strong>
+
+                    <span>
+                        مشتری نمونه
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="testimonial">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                انتخاب نوع خدمت و ارسال درخواست
+                بسیار سریع و راحت انجام می‌شود.
+            </p>
+
+            <div class="customer">
+
+                <div class="avatar">
+                    ع
+                </div>
+
+                <div>
+                    <strong>
+                        علی کریمی
+                    </strong>
+
+                    <span>
+                        مشتری نمونه
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 
 <!-- REQUEST FORM -->
 
 <section id="requestSection">
 
-<div class="form-box">
+    <div class="request-box">
 
-<div class="selected">
+        <div class="request-header">
 
-<div id="selectedIcon" class="selected-icon">
-🛠️
-</div>
+            <div
+                id="selectedIcon"
+                class="request-icon"
+            >
+                🛠️
+            </div>
 
-<h3 id="selectedService">
-درخواست خدمات
-</h3>
+            <h3 id="selectedService">
+                درخواست خدمات
+            </h3>
 
-</div>
+            <p>
+                اطلاعات خود را وارد کنید
+                تا درخواست شما ثبت شود.
+            </p>
 
-
-<div class="form-grid">
-
-<div class="field">
-
-<label>نام و نام خانوادگی</label>
-
-<input
-id="name"
-type="text"
-placeholder="نام شما"
->
-
-</div>
+        </div>
 
 
-<div class="field">
-
-<label>شماره تماس</label>
-
-<input
-id="phone"
-type="tel"
-placeholder="شماره تماس"
->
-
-</div>
+        <div class="form-grid">
 
 
-<div class="field">
+            <div class="form-field">
 
-<label>نوع خدمت</label>
+                <label>
+                    نام و نام خانوادگی
+                </label>
 
-<select id="serviceSelect">
-<option>نظافت</option>
-<option>تعمیرات</option>
-<option>برق‌کاری</option>
-<option>لوله‌کشی</option>
-<option>تهویه و تأسیسات</option>
-<option>سایر خدمات</option>
-</select>
+                <input
+                    id="customerName"
+                    type="text"
+                    placeholder="مثلاً علی احمدی"
+                >
 
-</div>
-
-
-<div class="field">
-
-<label>زمان پیشنهادی</label>
-
-<input
-id="date"
-type="datetime-local"
->
-
-</div>
+            </div>
 
 
-<div class="field full">
+            <div class="form-field">
 
-<label>توضیحات درخواست</label>
+                <label>
+                    شماره تماس
+                </label>
 
-<textarea
-id="description"
-placeholder="توضیح دهید چه خدمتی نیاز دارید..."
-></textarea>
+                <input
+                    id="customerPhone"
+                    type="tel"
+                    placeholder="مثلاً 09123456789"
+                >
 
-</div>
-
-</div>
-
-
-<button
-class="btn submit"
-onclick="submitRequest()"
->
-ثبت درخواست
-</button>
+            </div>
 
 
-<div id="success" class="success">
+            <div class="form-field">
 
-✅ درخواست شما با موفقیت ثبت شد.
+                <label>
+                    نوع خدمت
+                </label>
 
-<br>
+                <select id="serviceSelect">
 
-کارشناس S.H.L برای پیگیری درخواست
-با شما تماس خواهد گرفت.
+                    <option value="نظافت">
+                        🧹 نظافت
+                    </option>
 
-</div>
+                    <option value="تعمیرات">
+                        🔧 تعمیرات
+                    </option>
 
-</div>
+                    <option value="برق‌کاری">
+                        ⚡ برق‌کاری
+                    </option>
+
+                    <option value="لوله‌کشی">
+                        🚰 لوله‌کشی
+                    </option>
+
+                    <option value="تهویه و تأسیسات">
+                        ❄️ تهویه و تأسیسات
+                    </option>
+
+                    <option value="خدمات عمومی">
+                        🛠️ خدمات عمومی
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-field">
+
+                <label>
+                    زمان پیشنهادی
+                </label>
+
+                <input
+                    id="serviceDate"
+                    type="datetime-local"
+                >
+
+            </div>
+
+
+            <div class="form-field full">
+
+                <label>
+                    توضیحات درخواست
+                </label>
+
+                <textarea
+                    id="customerDescription"
+                    placeholder="توضیح دهید چه خدمتی نیاز دارید..."
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="submit-button"
+            onclick="submitRequest()"
+        >
+            ثبت درخواست خدمات
+        </button>
+
+
+        <div
+            id="successMessage"
+            class="success-message"
+        >
+
+            <strong>
+                ✅ درخواست با موفقیت ثبت شد
+            </strong>
+
+            <br>
+
+            اطلاعات درخواست شما در این نسخه نمایشی
+            آماده پیگیری است.
+
+        </div>
+
+    </div>
 
 </section>
 
 
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h3>
+        برای دریافت خدمات آماده‌اید؟
+    </h3>
+
+    <p>
+        خدمت موردنظر خود را انتخاب کنید
+        و درخواست خود را ثبت کنید.
+    </p>
+
+    <button onclick="scrollToServices()">
+        شروع درخواست
+    </button>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section
+    class="section"
+    id="contact"
+>
+
+    <div class="section-heading">
+
+        <div class="small">
+            CONTACT
+        </div>
+
+        <h3>
+            ارتباط با S.H.L
+        </h3>
+
+        <p>
+            برای ارتباط با مجموعه می‌توانید
+            از راه‌های زیر استفاده کنید.
+        </p>
+
+    </div>
+
+
+    <div class="contact-box">
+
+
+        <div class="contact-item">
+
+            <div class="contact-icon">
+                📞
+            </div>
+
+            <h4>
+                تماس
+            </h4>
+
+            <p>
+                09XX XXX XXXX
+            </p>
+
+        </div>
+
+
+        <div class="contact-item">
+
+            <div class="contact-icon">
+                ✉️
+            </div>
+
+            <h4>
+                ایمیل
+            </h4>
+
+            <p>
+                info@example.com
+            </p>
+
+        </div>
+
+
+        <div class="contact-item">
+
+            <div class="contact-icon">
+                📍
+            </div>
+
+            <h4>
+                آدرس
+            </h4>
+
+            <p>
+                آدرس شرکت را اینجا وارد کنید
+            </p>
+
+        </div>
+
+
+        <div class="contact-item">
+
+            <div class="contact-icon">
+                💬
+            </div>
+
+            <h4>
+                شبکه اجتماعی
+            </h4>
+
+            <p>
+                @SHL_Solutions
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
 <footer>
 
-<div>
-© 2026 S.H.L Services
-</div>
+    <div class="footer-content">
 
-<div class="contact">
-خدمات حرفه‌ای | سریع | مطمئن
-</div>
+
+        <div class="footer-brand">
+
+            <h3>
+                S.H.L Solutions
+            </h3>
+
+            <p>
+                ارائه خدمات حرفه‌ای و سازمان‌یافته
+                برای خانه، شرکت و کسب‌وکار.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                دسترسی سریع
+            </h4>
+
+            <a href="#home">
+                صفحه اصلی
+            </a>
+
+            <a href="#services">
+                خدمات
+            </a>
+
+            <a href="#contact">
+                تماس با ما
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                خدمات
+            </h4>
+
+            <a href="#services">
+                نظافت
+            </a>
+
+            <a href="#services">
+                تعمیرات
+            </a>
+
+            <a href="#services">
+                برق‌کاری
+            </a>
+
+            <a href="#services">
+                لوله‌کشی
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 S.H.L Solutions
+        — تمامی حقوق محفوظ است.
+
+    </div>
 
 </footer>
 
 </div>
 
 
+
+<!-- TOAST -->
+
+<div id="toast">
+    درخواست شما آماده ثبت است.
+</div>
+
+
+
 <script>
 
-/* رمز ورود دمو */
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+/*
+   رمز ورود نمونه‌کار
+
+   برای تغییر رمز، فقط مقدار داخل کوتیشن را تغییر بده.
+*/
+
 const CORRECT_PASSWORD = "SHL2026";
 
 
+/* =========================================================
+   LOGIN
+========================================================= */
+
 function login(){
 
-const password =
-document.getElementById("password").value;
+    const passwordInput =
+        document.getElementById("password");
 
-const error =
-document.getElementById("error");
+    const error =
+        document.getElementById("loginError");
 
-if(password === CORRECT_PASSWORD){
+    const loginPage =
+        document.getElementById("loginPage");
 
-document.getElementById("loginPage").style.display="none";
+    const app =
+        document.getElementById("app");
 
-document.getElementById("app").style.display="block";
 
-error.style.display="none";
+    const password =
+        passwordInput.value.trim();
 
-}else{
 
-error.style.display="block";
+    if(password === CORRECT_PASSWORD){
+
+        error.style.display = "none";
+
+        loginPage.style.display = "none";
+
+        app.style.display = "block";
+
+        window.scrollTo({
+            top:0,
+            behavior:"instant"
+        });
+
+        showToast("خوش آمدید به S.H.L Solutions");
+
+    }else{
+
+        error.style.display = "block";
+
+        passwordInput.value = "";
+
+        passwordInput.focus();
+
+    }
 
 }
 
+
+/* =========================================================
+   PASSWORD EYE
+========================================================= */
+
+function togglePassword(){
+
+    const input =
+        document.getElementById("password");
+
+    const eye =
+        document.getElementById("eyeButton");
+
+
+    if(input.type === "password"){
+
+        input.type = "text";
+
+        eye.innerText = "🙈";
+
+    }else{
+
+        input.type = "password";
+
+        eye.innerText = "👁️";
+
+    }
+
 }
 
+
+/* =========================================================
+   LOGOUT
+========================================================= */
 
 function logout(){
 
-document.getElementById("app").style.display="none";
+    document.getElementById("app")
+        .style.display = "none";
 
-document.getElementById("loginPage").style.display="flex";
+    document.getElementById("loginPage")
+        .style.display = "flex";
 
-document.getElementById("password").value="";
+    document.getElementById("password")
+        .value = "";
+
+    document.getElementById("loginError")
+        .style.display = "none";
+
+    window.scrollTo({
+        top:0,
+        behavior:"instant"
+    });
+
+}
+
+
+/* =========================================================
+   SERVICE SELECT
+========================================================= */
+
+function selectService(service, icon){
+
+    const requestSection =
+        document.getElementById("requestSection");
+
+
+    document.getElementById("selectedIcon")
+        .innerText = icon;
+
+
+    document.getElementById("selectedService")
+        .innerText =
+        "درخواست " + service;
+
+
+    document.getElementById("serviceSelect")
+        .value = service;
+
+
+    requestSection.style.display = "block";
+
+
+    requestSection.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+
+    showToast(
+        "خدمت «" + service + "» انتخاب شد"
+    );
 
 }
 
 
-function selectService(service,icon){
+/* =========================================================
+   SCROLL SERVICES
+========================================================= */
 
-const section =
-document.getElementById("requestSection");
+function scrollToServices(){
 
-document.getElementById("selectedService")
-.innerText="درخواست "+service;
-
-document.getElementById("selectedIcon")
-.innerText=icon;
-
-document.getElementById("serviceSelect")
-.value=service;
-
-section.style.display="block";
-
-section.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
+    document.getElementById("services")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 
 }
 
+
+/* =========================================================
+   SCROLL REQUEST
+========================================================= */
+
+function scrollToRequest(){
+
+    const section =
+        document.getElementById("requestSection");
+
+
+    section.style.display = "block";
+
+
+    section.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+
+/* =========================================================
+   SUBMIT REQUEST
+========================================================= */
 
 function submitRequest(){
 
-const name =
-document.getElementById("name").value.trim();
-
-const phone =
-document.getElementById("phone").value.trim();
-
-const description =
-document.getElementById("description").value.trim();
-
-const success =
-document.getElementById("success");
+    const name =
+        document
+        .getElementById("customerName")
+        .value
+        .trim();
 
 
-if(!name || !phone || !description){
+    const phone =
+        document
+        .getElementById("customerPhone")
+        .value
+        .trim();
 
-alert("لطفاً نام، شماره تماس و توضیحات درخواست را کامل کنید.");
 
-return;
+    const service =
+        document
+        .getElementById("serviceSelect")
+        .value;
+
+
+    const description =
+        document
+        .getElementById("customerDescription")
+        .value
+        .trim();
+
+
+    const success =
+        document.getElementById("successMessage");
+
+
+    if(!name){
+
+        alert(
+            "لطفاً نام و نام خانوادگی را وارد کنید."
+        );
+
+        return;
+    }
+
+
+    if(!phone){
+
+        alert(
+            "لطفاً شماره تماس را وارد کنید."
+        );
+
+        return;
+    }
+
+
+    if(!description){
+
+        alert(
+            "لطفاً توضیحات درخواست را وارد کنید."
+        );
+
+        return;
+    }
+
+
+    /*
+       در نسخه واقعی این قسمت باید
+       اطلاعات به سرور ارسال شود.
+
+       در حال حاضر فقط برای Demo
+       پیام موفقیت نمایش داده می‌شود.
+    */
+
+
+    success.style.display = "block";
+
+
+    showToast(
+        "درخواست " + service +
+        " با موفقیت ثبت شد."
+    );
+
+
+    success.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
 
 }
 
-success.style.display="block";
 
-success.scrollIntoView({
-behavior:"smooth",
-block:"center"
-});
+/* =========================================================
+   TOAST
+========================================================= */
+
+let toastTimer;
+
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+
+    toast.innerText = message;
+
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer =
+        setTimeout(function(){
+
+            toast.classList.remove("show");
+
+        },3000);
 
 }
+
+
+/* =========================================================
+   SERVICE SELECT CHANGE
+========================================================= */
+
+document
+.getElementById("serviceSelect")
+.addEventListener(
+    "change",
+    function(){
+
+        const service =
+            this.value;
+
+
+        document
+        .getElementById("selectedService")
+        .innerText =
+        "درخواست " + service;
+
+    }
+);
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            const request =
+                document.getElementById(
+                    "requestSection"
+                );
+
+            /*
+               فرم بسته نمی‌شود تا اطلاعات
+               کاربر از بین نرود.
+            */
+
+        }
+
+    }
+);
 
 </script>
 
